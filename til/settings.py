@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 SITE_ID = 1
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
@@ -152,6 +152,13 @@ AUTHENTICATION_BACKEND = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 )
+
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "frontend/")
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
